@@ -1,2 +1,6 @@
 %h1 Homes#index
-%p Find me in app/views/homes/index.html.haml
+
+- if student_signed_in?
+  = render'students/index'
+- elsif teacher_signed_in?
+  = render'teachers/index'

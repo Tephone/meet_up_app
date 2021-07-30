@@ -9,4 +9,18 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    = link_to 'ホーム', root_path
+
+    - if student_signed_in? 
+      = link_to 'ログアウト(生徒用)', destroy_student_session_path, method: :delete
+      = link_to 'マイページ(生徒用)', student_path(current_student)
+    - elsif teacher_signed_in? == false
+      = link_to 'ログイン(生徒用)', new_student_session_path
+
+    - if teacher_signed_in?
+      = link_to 'ログアウト(講師用)', destroy_teacher_session_path, method: :delete
+      = link_to 'マイページ(講師用)', teacher_path(current_teacher)
+    - elsif student_signed_in? == false
+      = link_to 'ログイン(講師用)', new_teacher_session_path
+
     = yield
