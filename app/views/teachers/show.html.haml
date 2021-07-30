@@ -2,6 +2,7 @@
 %p Find me in app/views/teachers/show.html.haml
 %p  名前: #{@teacher.name}
 %p  Eメール: #{@teacher.email}
-%p=  "プロフイール: #{@tacher.profile}" if current_teacher.profile.present?
+%p=  "プロフイール: #{@teacher.profile}" if current_teacher.profile.present?
+%p= image_tag @teacher.image.url if current_teacher.image.present?
 
 = link_to '編集', edit_teacher_registration_path
