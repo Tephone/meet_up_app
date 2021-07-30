@@ -1,6 +1,6 @@
 %h1 Homes#index
 
 - if student_signed_in?
-  = render'students/index'
+  = render'students/student_home'
 - elsif teacher_signed_in?
-  = render'teachers/index'
+  = render'teachers/teacher_home'

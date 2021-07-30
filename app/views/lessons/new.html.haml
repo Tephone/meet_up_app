@@ -1,0 +1,5 @@
+%h2 Lessons作成画面
+%h4 レッスン開始日時を指定してください（授業時間50分）
+= form_with(model: @lesson) do |f|
+  = f.datetime_field :start_datetime, min: Date.today
+  = f.submit

@@ -4,4 +4,6 @@ class Teacher < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
+  belongs_to :language
+  has_many :lessons
 end
