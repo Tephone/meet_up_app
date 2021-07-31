@@ -1,0 +1,7 @@
+- lesson_resavation = current_student.lesson_resavations.find{ |lesson_resavation| lesson_resavation.lesson_id == lesson.id }
+- if lesson_resavation.present?
+  = button_to '予約解除', lesson_resavation_path(lesson_resavation), method: :delete
+- else
+  = form_with(model: current_student.lesson_resavations.new(lesson_id: lesson.id)) do |f|
+    = f.hidden_field :lesson_id
+    = f.submit '予約する'
