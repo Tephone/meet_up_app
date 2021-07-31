@@ -1,2 +1,4 @@
 %h1 Students#index
-%p Find me in app/views/students/index.html.haml
+- Lesson.all.each do |lesson|
+  %p #{l lesson.start_datetime}〜 
+  言語: #{t(lesson.teacher.language.name)}/担当：#{lesson.teacher.name}
