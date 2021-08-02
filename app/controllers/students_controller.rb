@@ -5,5 +5,6 @@ class StudentsController < ApplicationController
 
   def show
     @student = current_student
+    @current_student_lesson_count =  @student.lesson_count
   end
 end
