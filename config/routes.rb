@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: '/inbox' if Rails.env.development?
   devise_for :teachers, controllers: {registrations: 'teachers/registrations'}
   devise_for :students, controllers: {registrations: 'students/registrations'}
   root 'homes#index' 

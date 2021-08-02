@@ -1,9 +1,14 @@
 class LessonResavationsController < ApplicationController
   def create
     lesson_resavation = current_student.lesson_resavations.new(lesson_resavation_params)
-    lesson_resavation.save
-    redirect_to root_path, notice: '予約しました'
-
+    if current_student.lesson_count == 0
+      redirect_to root_path, notice: 'チケットを購入してください'
+    else
+      lesson_resavation.save
+      NoticeMailer.lesson_resavation_notice_mail_to_student(lesson_resavation).deliver
+      NoticeMailer.lesson_resavation_notice_mail_to_teacher(lesson_resavation).deliver
+      redirect_to root_path, notice: '予約しました'
+    end
   end
 
   def destroy
