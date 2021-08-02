@@ -5,5 +5,6 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :lesson_resavations, dependent: :destroy #レッスンの予約情報を取得
   has_many :lessons_reserved, through: :lesson_resavations, source: :lesson  #予約したレッスン情報を取得
+  has_many :purchase_tickets
   validates :name, presence: true
 end

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :teachers, only: %i[show]
   resources :lessons, only: %i[new create]
   resources :lesson_resavations, only: %i[create destroy]
+  resources :purchase_tickets, only: %i[new create]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
