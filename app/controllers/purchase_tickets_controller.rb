@@ -6,7 +6,7 @@ class PurchaseTicketsController < ApplicationController
   def create
     purchase_ticket = current_student.purchase_tickets.new( purchase_ticket_params)
     if purchase_ticket.save
-      redirect_to root_path, notice: 'チケットを購入しました'
+      redirect_to student_homes_path, notice: 'チケットを購入しました'
     else
       render :new
     end

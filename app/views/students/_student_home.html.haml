@@ -1,7 +1,0 @@
-%h2 予約可能レッスン一覧
-- lessons = Lesson.where.not(id: LessonResavation.pluck(:lesson_id))
-- lessons.each do |lesson|
-  %p #{l lesson.start_datetime}〜 
-  言語: #{t(lesson.teacher.language.name)}/担当：#{lesson.teacher.name}
-  = render 'lesson_resavations/lesson_resavation_form', lesson: lesson
-= link_to 'チケット購入', new_purchase_ticket_path
