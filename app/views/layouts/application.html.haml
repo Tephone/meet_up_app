@@ -28,10 +28,10 @@
     - if teacher_signed_in?
       = link_to 'ホーム', teacher_homes_path
       = link_to 'マイレッスン', teachers_path
-      = link_to 'ログアウト(講師用)', destroy_teacher_session_path, method: :delete
       = link_to 'マイページ(講師用)', teacher_path(current_teacher)
+      = link_to 'ログアウト(講師用)', destroy_teacher_session_path, method: :delete
     - elsif student_signed_in? == false && admin_signed_in? == false
       = link_to 'ログイン(講師用)', new_teacher_session_path
     
-    = notice
+    %p= notice
     = yield

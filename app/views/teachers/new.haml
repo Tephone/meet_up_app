@@ -2,13 +2,13 @@
 = form_with(model: @teacher) do |f|
   %p
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, autofocus: true
   %p
     = f.label :email
     = f.email_field :email
   %p
     = f.label :language_id
-    = f.text_field :language_id
+    = f.select :language_id, languages_array
   %p
     = f.label :password
     = f.password_field :password

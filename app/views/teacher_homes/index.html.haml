@@ -1,6 +1,5 @@
 %h2 レッスン一覧
 
-- languages_array = Language.all.map{ |language| [t(language.name), language.name]}
 = form_with(url: teacher_homes_path, method: :get) do |f|
   = f.search_field :teacher, placeholder: '--講師名--'
   = f.select :language, languages_array, {include_blank: '--言語--'}
