@@ -1,0 +1,17 @@
+= form_with(model: @teacher) do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :email
+    = f.email_field :email
+  %p
+    = f.label :language_id
+    = f.text_field :language_id
+  %p
+    = f.label :profile
+    = f.text_area :profile
+  %p
+    = f.label :image
+    = f.file_field :image
+  = f.submit

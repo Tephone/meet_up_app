@@ -1,0 +1,19 @@
+%h2 講師作成画面
+= form_with(model: @teacher) do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :email
+    = f.email_field :email
+  %p
+    = f.label :language_id
+    = f.text_field :language_id
+  %p
+    = f.label :password
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation    
+
+  = f.submit
