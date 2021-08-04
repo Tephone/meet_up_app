@@ -16,3 +16,5 @@ Language.create(name: 'Nepali')
 Ticket.create(price: 2000 * 1.1, lesson_count: 1)
 Ticket.create(price: 5000 * 1.1, lesson_count: 3)
 Ticket.create(price: 7500 * 1.1, lesson_count: 5)
+
+Admin.create(email: 'admin@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa') if Rails.env.production?

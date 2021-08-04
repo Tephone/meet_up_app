@@ -5,8 +5,10 @@ class LessonResavationsController < ApplicationController
       redirect_to student_homes_path, notice: 'チケットを購入してください'
     else
       lesson_resavation.save
-      NoticeMailer.lesson_resavation_notice_mail_to_student(lesson_resavation).deliver
-      NoticeMailer.lesson_resavation_notice_mail_to_teacher(lesson_resavation).deliver
+      if Rails.env.development?
+        NoticeMailer.lesson_resavation_notice_mail_to_student(lesson_resavation).deliver
+        NoticeMailer.lesson_resavation_notice_mail_to_teacher(lesson_resavation).deliver
+      end
       redirect_to student_homes_path, notice: '予約しました'
     end
   end
