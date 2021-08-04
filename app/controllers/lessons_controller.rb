@@ -19,7 +19,7 @@ class LessonsController < ApplicationController
   end
 
   private
-  
+
   def lesson_params
     params.require(:lesson).permit(:start_datetime)
   end

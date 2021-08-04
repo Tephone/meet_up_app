@@ -18,7 +18,7 @@ class LessonResavationsController < ApplicationController
   end
 
   private
-  
+
   def lesson_resavation_params
     params.require(:lesson_resavation).permit(:lesson_id)
   end

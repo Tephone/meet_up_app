@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/inbox' if Rails.env.development?
-  devise_for :admins, controllers: {sessions: 'admins/sessions'}
-  devise_for :teachers, controllers: {registrations: 'teachers/registrations', sessions: 'teachers/sessions'}
-  devise_for :students, controllers: {registrations: 'students/registrations', sessions: 'students/sessions'}
-  root 'tops#index' 
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+  devise_for :teachers, controllers: { registrations: 'teachers/registrations', sessions: 'teachers/sessions' }
+  devise_for :students, controllers: { registrations: 'students/registrations', sessions: 'students/sessions' }
+  root 'tops#index'
   resources :tops, only: %i[index]
   resources :student_homes, only: %i[index]
   resources :teacher_homes, only: %i[index]

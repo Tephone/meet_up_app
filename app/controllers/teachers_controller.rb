@@ -1,12 +1,12 @@
 class TeachersController < ApplicationController
   before_action :authenticate_teacher!, if: :teacher_signed_in?
   before_action :authenticate_admin!, if: :admin_signed_in?
-  before_action :set_teacher, only: %i[ show edit update destroy]
+  before_action :set_teacher, only: %i[show edit update destroy]
 
   def index
     @lessons = current_teacher.lessons.page(params[:page])
   end
-  
+
   def new
     @teacher = Teacher.new
   end
@@ -22,29 +22,28 @@ class TeachersController < ApplicationController
 
   def show
   end
-  
+
   def edit
   end
 
   def update
+    @teacher.update(teacher_params)
     if admin_signed_in?
-      @teacher.update(teacher_params)
       redirect_to admins_path, notice: "#{@teacher.name}を編集しました"
     else
-      @teacher.update(teacher_params)
       redirect_to teacher_path, notice: "#{@teacher.name}を編集しました"
     end
   end
 
   def destroy
     @teacher.destroy!
-    redirect_to admins_path, notice: "削除しました"
+    redirect_to admins_path, notice: '削除しました'
   end
 
   private
 
   def teacher_params
-    params.require(:teacher).permit %i(name email language_id profile password password_confirmation)
+    params.require(:teacher).permit %i[name email language_id profile password password_confirmation]
   end
 
   def set_teacher
