@@ -1,0 +1,7 @@
+%h1 Admins#index
+%p Find me in app/views/admins/index.html.haml
+- @teachers.each do |teacher|
+  %p
+    講師名：#{teacher.name}
+    =link_to '編集', edit_teacher_registration_path(teacher)
+    -# =link_to '編集', teacher_path(teacher)

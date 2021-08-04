@@ -11,7 +11,8 @@
   %body
     = link_to 'TOP', root_path
 
-    - if admin_signed_in? 
+    - if admin_signed_in?
+      = link_to 'ホーム', admins_path
       = link_to 'ログアウト(管理者)', destroy_admin_session_path, method: :delete
     - elsif teacher_signed_in? == false && student_signed_in? == false
       = link_to 'ログイン(管理者)', new_admin_session_path

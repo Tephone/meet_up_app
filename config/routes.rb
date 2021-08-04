@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :teacher_homes, only: %i[index]
   resources :students, only: %i[index show]
   resources :teachers, only: %i[index show]
+  resources :admins, only: %i[index]
   resources :lessons, only: %i[new create]
   resources :lesson_resavations, only: %i[create destroy]
   resources :purchase_tickets, only: %i[new create]
