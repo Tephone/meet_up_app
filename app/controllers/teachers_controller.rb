@@ -43,7 +43,7 @@ class TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit %i[name email language_id profile password password_confirmation]
+    params.require(:teacher).permit %i[name email language_id profile image password password_confirmation]
   end
 
   def set_teacher
