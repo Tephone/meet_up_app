@@ -11,3 +11,4 @@
   言語: #{t(lesson.teacher.language.name)}/担当：#{lesson.teacher.name}
   = render 'lesson_resavations/lesson_resavation_form', lesson: lesson
 = link_to 'チケット購入', new_purchase_ticket_path
+= paginate @lessons

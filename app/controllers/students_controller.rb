@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_student!
+
   def index
-    @lessons = current_student.lessons_reserved
+    @lessons = current_student.lessons_reserved.page(params[:page])
   end
 
   def show

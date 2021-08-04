@@ -6,4 +6,5 @@ class Teacher < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :language
   has_many :lessons, dependent: :destroy
+  validates :name, presence: true
 end

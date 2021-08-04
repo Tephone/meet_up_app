@@ -9,3 +9,4 @@
 - @lessons.each do |lesson|
   %p #{l lesson.start_datetime}〜 
   言語: #{t(lesson.teacher.language.name)}/担当：#{lesson.teacher.name}
+= paginate @lessons

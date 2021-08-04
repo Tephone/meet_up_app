@@ -4,6 +4,7 @@ class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[ show edit update destroy]
 
   def index
+    @lessons = current_teacher.lessons.page(params[:page])
   end
   
   def new
@@ -11,8 +12,8 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(teacher_params)
-    if @teacher.save
+    teacher = Teacher.new(teacher_params)
+    if teacher.save
       redirect_to admins_path
     else
       render 'teachers/new'
