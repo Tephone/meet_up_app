@@ -12,9 +12,10 @@
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email)
   .field
+    - language_array = Language.all.map { |language| [t(language.name), language.id] }
     = f.label :language_id
     %br/
-    = f.text_field :language_id, autocomplete: "language_id"
+    = f.select :language_id, language_array
   .field
     = f.label :profile
     %br/
@@ -36,13 +37,12 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
-  -# deviseのdefaut_viewで後々使う可能性もあるためコメントアウトします
-  -# .field
-  -#   = f.label :current_password
-  -#   %i
-  -#     (#{t('.we_need_your_current_password_to_confirm_your_changes')})
-  -#   %br/
-  -#   = f.password_field :current_password, autocomplete: "current-password"
+  .field
+    = f.label :current_password
+    %i
+      (#{t('.we_need_your_current_password_to_confirm_your_changes')})
+    %br/
+    = f.password_field :current_password, autocomplete: "current-password"
   .actions
     = f.submit t('.update')
 -# deviseのdefaut_viewで後々使う可能性もあるためコメントアウトします
