@@ -10,6 +10,12 @@ module MeetUpApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.time_zone = 'Asia/Tokyo'
+    config.generators do |g|
+      g.helper false
+      g.test_framework false
+      g.assets false
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #

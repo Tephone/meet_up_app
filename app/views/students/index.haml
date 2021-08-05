@@ -1,0 +1,7 @@
+%h2 予約済みレッスン一覧
+- @lessons.each do |lesson|
+  %p #{l lesson.start_datetime}〜
+  %p 言語：#{t(lesson.teacher.language.name)} / 担当：#{lesson.teacher.name}
+  %p zoom：#{lesson.zoom_url}
+  = render 'lesson_resavations/lesson_resavation_form', lesson: lesson
+= paginate @lessons

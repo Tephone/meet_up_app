@@ -1,0 +1,11 @@
+%h2 講師一覧画面
+- @teachers.each do |teacher|
+  %p
+    講師名：#{teacher.name}
+    =link_to '詳細', teacher_path(teacher)
+    =link_to '編集', edit_teacher_path(teacher)
+    =link_to '削除', teacher_path(teacher), method: :delete
+    =link_to '代理ログイン', login_as_teacher_admin_path(teacher)
+
+= link_to '講師作成', new_teacher_path
+= paginate @teachers

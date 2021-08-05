@@ -1,0 +1,5 @@
+%h2 生徒情報
+%p  名前: #{@student.name}
+%p  Eメール: #{@student.email}
+%p  レッスン受講可能数: #{@current_student_lesson_count}
+= link_to '編集', edit_student_registration_path

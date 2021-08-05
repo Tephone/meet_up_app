@@ -1,0 +1,14 @@
+%h2 予約可能レッスン一覧
+
+= form_with(url: student_homes_path, method: :get) do |f|
+  = f.search_field :teacher, placeholder: '--講師名--'
+  = f.select :language, languages_array, {include_blank: '--言語--'}
+  = f.date_field :date, min: Date.today
+  = f.submit '検索'
+
+- @lessons.each do |lesson|
+  %p #{l lesson.start_datetime}〜 
+  言語: #{t(lesson.teacher.language.name)}/担当：#{lesson.teacher.name}
+  = render 'lesson_resavations/lesson_resavation_form', lesson: lesson
+= link_to 'チケット購入', new_purchase_ticket_path
+= paginate @lessons

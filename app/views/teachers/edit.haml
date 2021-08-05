@@ -1,0 +1,18 @@
+%h2 編集画面
+= form_with(model: @teacher) do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :email
+    = f.email_field :email
+  %p
+    = f.label :language_id
+    = f.select :language_id, languages_array
+  %p
+    = f.label :profile
+  %p
+    = f.text_area :profile
+  %p
+    = f.file_field :image
+  = f.submit

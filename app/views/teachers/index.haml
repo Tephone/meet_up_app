@@ -1,0 +1,7 @@
+%h2 作成したレッスン一覧
+- current_teacher.lessons.each do |lesson|
+  %p 
+    #{l lesson.start_datetime}〜
+    = link_to '削除', lesson_path(lesson), method: :delete
+= link_to 'lesson作成', new_lesson_path
+= paginate @lessons

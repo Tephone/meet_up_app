@@ -1,0 +1,5 @@
+%h2 チケット購入画面
+- tickets_array = Ticket.all.map { |ticket| ["#{ticket.price}円：#{ticket.lesson_count}回分", ticket.id] } 
+= form_with(model: @purchase_ticket) do |f|
+  = f.select :ticket_id, tickets_array, { include_blank: "選択してください"}
+  = f.submit '購入'
